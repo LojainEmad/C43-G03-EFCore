@@ -31,7 +31,7 @@ namespace EntityFrameWork_Assignment.Models
         public int? DepartmentId {  get; set; }
 
         [InverseProperty("Instructors")]
-        public Department Department { get; set; }
+        public Department? Department { get; set; }
 
 
 
