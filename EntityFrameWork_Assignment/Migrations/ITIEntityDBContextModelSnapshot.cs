@@ -49,15 +49,15 @@ namespace EntityFrameWork_Assignment.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Course_Inst", b =>
                 {
-                    b.Property<int?>("CourseId")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InstructorId")
+                    b.Property<int>("InstructorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Evaluate")
@@ -69,7 +69,7 @@ namespace EntityFrameWork_Assignment.Migrations
 
                     b.HasIndex("InstructorId");
 
-                    b.ToTable("Course_Insts");
+                    b.ToTable("Course_Insts", (string)null);
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Department", b =>
@@ -101,7 +101,7 @@ namespace EntityFrameWork_Assignment.Migrations
                         .IsUnique()
                         .HasFilter("[InstructorId] IS NOT NULL");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Instructor", b =>
@@ -136,15 +136,15 @@ namespace EntityFrameWork_Assignment.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("Instructors", (string)null);
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Stud_Course", b =>
                 {
-                    b.Property<int?>("StudentId")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CourseId")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
                     b.Property<string>("Grade")
@@ -155,7 +155,7 @@ namespace EntityFrameWork_Assignment.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Stud_Course");
+                    b.ToTable("Stud_Course", (string)null);
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Student", b =>
@@ -189,7 +189,7 @@ namespace EntityFrameWork_Assignment.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Topic", b =>
@@ -206,7 +206,7 @@ namespace EntityFrameWork_Assignment.Migrations
 
                     b.HasKey("TopicId");
 
-                    b.ToTable("Topics");
+                    b.ToTable("Topics", (string)null);
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Course", b =>
@@ -220,21 +220,17 @@ namespace EntityFrameWork_Assignment.Migrations
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Course_Inst", b =>
                 {
-                    b.HasOne("EntityFrameWork_Assignment.Models.Course", "Course")
+                    b.HasOne("EntityFrameWork_Assignment.Models.Course", null)
                         .WithMany("Courses_Inst")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityFrameWork_Assignment.Models.Instructor", "Instructor")
+                    b.HasOne("EntityFrameWork_Assignment.Models.Instructor", null)
                         .WithMany("Instructors_Courses")
                         .HasForeignKey("InstructorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Instructor");
                 });
 
             modelBuilder.Entity("EntityFrameWork_Assignment.Models.Department", b =>

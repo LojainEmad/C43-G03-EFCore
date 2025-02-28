@@ -7,7 +7,7 @@ namespace EntityFrameWork_Assignment
     {
         static void Main(string[] args)
         {
-            ITIEntityDBContext DBContext = new ITIEntityDBContext();  //open connection
+            ITIEntityDBContext DBContext = new ITIEntityDBContext(); 
 
             #region Crud Operations on Student
             //using (var context = new ITIEntityDBContext())
@@ -184,82 +184,123 @@ namespace EntityFrameWork_Assignment
             #endregion
 
             #region Crud operations on Course_Inst
-            using (var context = new ITIEntityDBContext()) // Replace with your actual DbContext
-            {
-                //1 add
-                var newCourseInst = new Course_Inst
-                {
-                   
-                    Evaluate = 'B'
-                };
-                context.Course_Insts.Add(newCourseInst);
-                context.SaveChanges();
-                Console.WriteLine($"course_Inst added with evaluation {newCourseInst.Evaluate}");
+            //using (var context = new ITIEntityDBContext()) // Replace with your actual DbContext
+            //{
+            //    //1 add
+            //    var newCourseInst = new Course_Inst
+            //    {
 
-                //2 retrieve
-                var courseInst = context.Course_Insts
-                                        .FirstOrDefault();
+            //        Evaluate = 'B'
+            //    };
+            //    context.Course_Insts.Add(newCourseInst);
+            //    context.SaveChanges();
+            //    Console.WriteLine($"course_Inst added with evaluation {newCourseInst.Evaluate}");
 
-                if (courseInst != null)
-                {
-                    Console.WriteLine($"Course_Inst is : courseId={courseInst.CourseId}, InstructorId={courseInst.InstructorId}, evaluate={courseInst.Evaluate}");
-                }
+            //    //2 retrieve
+            //    var courseInst = context.Course_Insts
+            //                            .FirstOrDefault();
 
-                //3 update
-                if (courseInst != null)
-                {
-                    courseInst.Evaluate = 'A'; // Update evaluation
-                    context.SaveChanges();
-                    Console.WriteLine($"Course_Inst evaluation updated to {courseInst.Evaluate}");
-                }
+            //    if (courseInst != null)
+            //    {
+            //        Console.WriteLine($"Course_Inst is : courseId={courseInst.CourseId}, InstructorId={courseInst.InstructorId}, evaluate={courseInst.Evaluate}");
+            //    }
 
-                //4 delete
-                if (courseInst != null)
-                {
-                    context.Course_Insts.Remove(courseInst);
-                    context.SaveChanges();
-                    Console.WriteLine($"course_Inst with Evaluation {courseInst.Evaluate} deleted");
-                }
-            }
+            //    //3 update
+            //    if (courseInst != null)
+            //    {
+            //        courseInst.Evaluate = 'A'; // Update evaluation
+            //        context.SaveChanges();
+            //        Console.WriteLine($"Course_Inst evaluation updated to {courseInst.Evaluate}");
+            //    }
+
+            //    //4 delete
+            //    if (courseInst != null)
+            //    {
+            //        context.Course_Insts.Remove(courseInst);
+            //        context.SaveChanges();
+            //        Console.WriteLine($"course_Inst with Evaluation {courseInst.Evaluate} deleted");
+            //    }
+            //}
             #endregion
 
             #region Crud operations on Stud_Course
-            using (var context = new ITIEntityDBContext())
-            {
-                //1 add
-                var newStudCourse = new Stud_Course
-                {
-                   
-                    Grade = 'A'
-                };
+            //using (var context = new ITIEntityDBContext())
+            //{
+            //    //1 add
+            //    var newStudCourse = new Stud_Course
+            //    {
 
-                context.Stud_Course.Add(newStudCourse);
-                context.SaveChanges();
-                Console.WriteLine("Stud_Course added ");
+            //        Grade = 'A'
+            //    };
 
-                //2 retrieve
-                var studCourse = context.Stud_Course.FirstOrDefault();
-                if (studCourse != null)
-                {
-                    Console.WriteLine($"Stud_Course Found: Grade = {studCourse.Grade}");
-                }
+            //    context.Stud_Course.Add(newStudCourse);
+            //    context.SaveChanges();
+            //    Console.WriteLine("Stud_Course added ");
 
-                //3 update
-                if (studCourse != null)
-                {
-                    studCourse.Grade = 'B';
-                    context.SaveChanges();
-                    Console.WriteLine("Stud_Course updated successfully!");
-                }
+            //    //2 retrieve
+            //    var studCourse = context.Stud_Course.FirstOrDefault();
+            //    if (studCourse != null)
+            //    {
+            //        Console.WriteLine($"Stud_Course : Grade = {studCourse.Grade}");
+            //    }
 
-                // DELETE
-                if (studCourse != null)
-                {
-                    context.Stud_Course.Remove(studCourse);
-                    context.SaveChanges();
-                    Console.WriteLine("Stud_Course deleted successfully!");
-                }
-            }
+            //    //3 update
+            //    if (studCourse != null)
+            //    {
+            //        studCourse.Grade = 'B';
+            //        context.SaveChanges();
+            //        Console.WriteLine("Stud_Course updated ");
+            //    }
+
+            //    // DELETE
+            //    if (studCourse != null)
+            //    {
+            //        context.Stud_Course.Remove(studCourse);
+            //        context.SaveChanges();
+            //        Console.WriteLine("Stud_Course deleted ");
+            //    }
+            //}
+            #endregion
+
+            #region Crud operations on course
+
+            //using (var context = new ITIEntityDBContext())
+            //{
+            //    //1 add
+            //    var newCourse = new Course
+            //    {
+            //        Name = "C# ",
+            //        Duration = TimeSpan.FromHours(10),
+            //        Description = "C# is perfect",
+            //    };
+
+            //    context.Courses.Add(newCourse);
+            //    context.SaveChanges();
+            //    Console.WriteLine("Course added ");
+
+            //    // 2 retrieve
+            //    var course = context.Courses.FirstOrDefault();
+            //    if (course != null)
+            //    {
+            //        Console.WriteLine($"course found: {course.Name}, duration: {course.Duration}");
+            //    }
+
+            //    //3 update
+            //    if (course != null)
+            //    {
+            //        course.Description = "updated: C# is interesting ";
+            //        context.SaveChanges();
+            //        Console.WriteLine("Course updated ");
+            //    }
+
+            //    //4 delete
+            //    if (course != null)
+            //    {
+            //        context.Courses.Remove(course);
+            //        context.SaveChanges();
+            //        Console.WriteLine("Course deleted ");
+            //    }
+            //}
             #endregion
         }
     }

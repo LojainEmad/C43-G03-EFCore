@@ -11,17 +11,17 @@ namespace EntityFrameWork_Assignment.Models
     public class Course_Inst
     {
         [ForeignKey("Course")]
-        public int? CourseId { get; set; } 
+        public int CourseId { get; set; } 
 
         [ForeignKey("Instructor")]
-        public int? InstructorId { get; set; } 
+        public int InstructorId { get; set; } 
 
         [MaxLength(1)]
         public char Evaluate { get; set; }
 
-        public Course? Course { get; set; }
+        public Course Course { get; set; }
 
-        public Instructor? Instructor { get; set; }
+        public Instructor Instructor { get; set; }
     }
 
 }
